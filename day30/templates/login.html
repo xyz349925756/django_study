@@ -1,0 +1,28 @@
+{% extends 'g.html' %}
+
+{% block content %}
+<div class="container col-xl-10 col-xxl-8 px-4 ">
+    <div class="row align-items-center g-lg-5 ">
+      <div class="col-md-10 mx-auto col-lg-5">
+        <form class="p-4 p-md-5 border rounded-3 bg-light">
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+          </div>
+          <div class="checkbox mb-3">
+            <label>
+              <input type="checkbox" value="remember-me"> 网站须知
+            </label>
+          </div>
+          <button class="w-100 btn btn-lg btn-primary" type="submit">登录</button>
+          <hr class="my-4">
+          <small class="text-muted">勾选阅读网站须知</small>
+        </form>
+      </div>
+    </div>
+</div>
+{% endblock %}

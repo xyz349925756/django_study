@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!--响应式布局-->
+    <title>Title</title>
+    <!--django-->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <!--jQuery CDN
+<link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.1.2/css/fontawesome.min.css" rel="stylesheet">
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.0/js/bootstrap.min.js"></script>-->
+{% block css %}
+
+{% endblock %}
+
+
+
+</head>
+<body>
+<!--head-->
+<div class="container">
+    <header class="d-flex justify-content-center py-3">
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+      </ul>
+    </header>
+</div>
+
+<!--sidebar-->
+<div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;float: left">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+      <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+      <span class="fs-4">主页</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a href="/login/" class="nav-link  active" aria-current="page">
+{#          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>#}
+          登录
+        </a>
+      </li>
+      <li>
+        <a href="/reg/" class="nav-link link-dark">
+{#          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>#}
+          注册
+        </a>
+      </li>
+    </ul>
+    <hr>
+</div>
+
+{% block content %}
+    <h1> 这是一个神奇的页面！ </h1>
+    <h2> 这是一个神奇的页面！ </h2>
+    <h3> 这是一个神奇的页面！ </h3>
+    <h4> 这是一个神奇的页面！ </h4>
+    <h5> 这是一个神奇的页面！ </h5>
+    <h6> 这是一个神奇的页面！ </h6>
+{% endblock %}
+
+
+{% block script %}
+
+{% endblock %}
+
+</body>
+</html>

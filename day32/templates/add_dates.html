@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!--响应式布局-->
+    <title>Title</title>
+    <!--django-->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sweetalert.css' %}">
+    <style>
+        div.sweet-alert h2{
+            padding-top: 4px;
+        }
+    </style>
+    <script src="{% static 'js/sweetalert.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+
+</head>
+<body>
+<div class="container-fluid">
+    <h1 class="text-center">UserList</h1>
+    <div class="row">
+        <div class="col-md-12 col-md-auto">
+            <table class="table-striped table-hover table">
+                <thead>
+                 <tr>
+                     <td><i class="fa-brands fa-ideal"></i>ID</td>
+                     <td><i class="fa-solid fa-user"></i>Username</td>
+                     <td><i class="fa-solid fa-calendar"></i>Age</td>
+                     <td><i class="fa-solid fa-person-half-dress"></i>Gender</td>
+                     <td><i class="fa-solid fa-user-secret"></i>Score</td>
+                     <td><i class="fa-solid fa-desktop"></i>Te</td>
+                     <td><i class="fa-solid fa-screwdriver-wrench"></i>Action</td>
+                 </tr>
+                </thead>
+{#                <tbody>#}
+{#                 {% for user_obj in user_queryset_list %}#}
+{#                   <tr>#}
+{#                       <td>{{ user_obj.pk }}</td>#}
+{#                       <td>{{ user_obj.username }}</td>#}
+{#                       <td>{{ user_obj.age }}</td>#}
+{#                       <td>{{ user_obj.get_gender_display }}</td>#}
+{#                       <td>{{ user_obj.get_score_display }}</td>#}
+{#                       <td>{{ user_obj.te.id }}</td>#}
+{#                       <td>#}
+{#                           <button class="btn btn-primary btn-sm">编辑</button>#}
+{#                           <button class="btn btn-danger btn-sm del" delete_id="{{ user_obj.pk }}">删除</button>#}
+{#                       </td>#}
+{#                   </tr>#}
+{##}
+{##}
+{#                 {% endfor %}#}
+{##}
+{##}
+{#                </tbody>#}
+
+                <tbody>
+                   {% for user_obj in page_queryset %}
+                     <tr>
+                         <td>{{ user_obj.pk }}</td>
+                         <td>{{ user_obj.username }}</td>
+                         <td>{{ user_obj.age }}</td>
+                         <td>{{ user_obj.get_gender_display }}</td>
+                         <td>{{ user_obj.get_score_display }}</td>
+                         <td>{{ user_obj.id }}</td>
+                         <td>
+                             <button class="btn btn-primary btn-sm">编辑</button>
+                             <button class="btn btn-danger btn-sm del" delete_id="{{ user_obj.pk }}">删除</button>
+                         </td>
+                     </tr>
+                   {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<nav aria-label="..." class="d-flex justify-content-center">
+  <ul class="pagination">
+{#    <li class="page-item">#}
+{#      <a aria-label="Previous" class="page-link" href="?page={{ x }}">#}
+{#          <span aria-hidden="true">Previous</span>#}
+{#      </a>#}
+{#    </li>#}
+{#      {{ Previous|safe }}#}
+{#    <li class="page-item active"  aria-current="page"><a class="page-link" href="#">1</a></li>#}
+{#      {{ page_html|safe }}#}
+{#    <li class="page-item">#}
+{#      <a aria-label="Next" class="page-link" href="?page={{ xx }}">#}
+{#          <span aria-hidden="true">Next</span>#}
+{#      </a>#}
+{#     </li>#}
+{#      {{ Next|safe }}#}
+      {{ page_obj.page_html|safe }}
+  </ul>
+</nav>
+
+{#{% for user_obj in page_queryset %}#}
+{# <p>{{ user_obj.username }}</p>#}
+{#    <nav aria-label="..." class="d-flex justify-content-center">#}
+{#         {{ page_obj.page_html|safe }}#}
+{#    </nav>#}
+{#{% endfor %}#}
+
+
+
+
+
+{#{{ error_html|safe }}#}
+{##}
+{#<div class="bd-example" style="margin-left: 20%;">#}
+{#        <p class="h1">Example heading <span class="badge bg-primary">New</span></p>#}
+{#        <p class="h2">Example heading <span class="badge bg-secondary">New</span></p>#}
+{#        <p class="h3">Example heading <span class="badge bg-success">New</span></p>#}
+{#        <p class="h4">Example heading <span class="badge bg-danger">New</span></p>#}
+{#        <p class="h5">Example heading <span class="badge bg-warning text-dark">New</span></p>#}
+{#        <p class="h6">Example heading <span class="badge bg-info text-dark">New</span></p>#}
+{#        <p class="h6">Example heading <span class="badge bg-light text-dark">New</span></p>#}
+{#        <p class="h6">Example heading <span class="badge bg-dark">New</span></p>#}
+{#</div>#}
+
+
+
+<script>
+    $('.del').on('click',function () {
+        // 先将获取的标签对象存储起来
+        let currenBtn = $(this);
+        {#alert($(this).attr('delete_id'))#}
+
+        //sweetalert
+        swal({
+                title: "您是否删除?",
+                text: "您确定你要删除该行数据,备份过了?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Yes",
+                cancelButtonClass: "btn-primary",
+                cancelButtonText: "No, 再想想!",
+                closeOnConfirm: false,
+                closeOnCancel: false,
+                showLoaderOnConfirm: true,  //延时3秒,动态效果
+            },
+        function(isConfirm) {
+             if (isConfirm) {
+                {#swal("已经删除!", "如果这是恶意行为监狱欢迎您!", "success");#}
+                 // 向后端发送ajax请求删除数据再弹出下面的提示
+                 $.ajax({
+                     {#url:'/delete/user/' + currenBtn.attr('delete_id'),  //1 传递主键值方式1#}
+                     url: '/delete/user/', //2 放在请求体里面
+                     type:'post',
+                     data:{'delete_id':currenBtn.attr('delete_id')},
+                     success:function (args) {
+                         if(args.code === 10086){
+                             swal('删除',args.msg,"success");
+                             {#window.location.reload()#}
+                             currenBtn.parent().parent().remove()
+                         }
+                         else {
+                             swal('Error','返回状态码不存在,但数据也被删除了,请联系管理员','info')
+                             currenBtn.parent().parent().remove()
+                         }
+                     }
+                 })
+                }
+             else {
+                swal("操作被取消", "数据幸存下来!", "error");
+                }
+            });
+
+
+        })
+</script>
+</body>
+</html>

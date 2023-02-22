@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+
+  {% block content %}
+      <a href="{% url 'book_add' %}" class="btn btn-info">添加</a>
+    <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+              <td><i class="fa fa-list-ol"></i>ID</td>
+              <td><i class="fa fa-book"></i>书名</td>
+              <td><i class="fa fa-jpy"></i>价格</td>
+              <td><i class="fa fa-calendar-times-o"></i>出版日期</td>
+              <td><i class="fa fa-building"></i>出版社</td>
+              <td><i class="fa fa-edit"></i>作者</td>
+              <td><i class="fa fa-cogs"></i>操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          {% for book_obj in book_queryset %}
+            <tr>
+                <td>{{ book_obj.pk }}</td>
+                <td>{{ book_obj.name }}</td>
+                <td>{{ book_obj.price }}</td>
+                <td>{{ book_obj.publish_date|date:'Y-m-d' }}</td>
+                <td>{{ book_obj.publish.name }}</td>
+                <td>{% for author_obj in book_obj.authors.all %}
+                    {% if forloop.last %}
+                        {{ author_obj.name }}
+                    {% else %}
+                        {{ author_obj.name }},
+                    {% endif %} 
+
+                {% endfor %}
+                </td>
+                <td>
+                    <a href="{% url 'edit_book' book_obj.pk %}" class="btn btn-primary btn-sm">编辑</a>
+                    <a href="{% url 'book_del' book_obj.pk %}" class="btn btn-danger btn-sm">删除</a>
+                </td>
+            </tr>
+          {% endfor %}
+
+        </tbody>
+
+    </table>
+{% endblock %}

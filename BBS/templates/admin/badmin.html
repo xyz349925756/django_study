@@ -1,0 +1,104 @@
+{% extends 'admin/base.html' %}
+
+{% block css %}
+<style>
+        div.sweet-alert h2{
+            padding-top: 5px;
+        }
+</style>
+{% endblock %}
+
+
+{% block set %}
+<!--展示当前用户的所有文章-->
+    <p></p>
+    <h3><i class="fa-solid fa-list"></i>  文章列表</h3>
+<table class="table table-bordered border-primary">
+  <thead>
+   <tr>
+       <th><i class="fa-solid fa-heading"></i>  标题</th>
+       <th><i class="fa-regular fa-thumbs-up"></i>  点赞</th>
+       <th><i class="fa-solid fa-comment"></i>  评论</th>
+       <th><i class="fa-solid fa-pen-to-square"></i>  编辑</th>
+       <th><i class="fa-solid fa-trash"></i>  删除</th>
+   </tr>
+  </thead>
+  <tbody>
+{% for article in page_queryset %}
+   <tr>
+       <td><a href="/{{ article.blog.userinfo.username }}/p/{{ article.pk }}/"><i class="fa-solid fa-bars"></i>  {{ article.title }}</a></td>
+       <td><i class="fa-solid fa-thumbs-up"></i>  {{ article.up_num }}  </td>
+       <td><i class="fa-solid fa-message"></i>  {{ article.comment_num }}  </td>
+       <td><a class="btn btn-sm btn-outline-primary" href="{% url 'edit_article' article.pk %}"><i class="fa-solid fa-file-pen"></i>  编辑</a></td>
+{#       <td><a class="del_article" href="{% url 'delete_article' article.pk %}" del_id="{{ article.pk }}"><i class="fa-solid fa-trash-can"></i>  删除</a></td>#}
+       <td><button class="btn btn-sm btn-outline-danger del_article" del_id="{{ article.pk }}"><i class="fa-solid fa-trash-can"></i>  删除</button></td>
+   </tr>
+{% endfor %}
+
+     
+  </tbody>
+</table>
+    <nav aria-label="..." class="d-flex justify-content-end">
+      <ul class="pagination">
+          {{ page_obj.page_html|safe }}
+      </ul>
+    </nav>
+{% endblock %}
+
+{% block js %}
+    <script>
+
+    {#$('.del_article').on('click',function () {#}
+    {#   //alert($(this).attr('del_id'));#}
+    //})
+
+    $('.del_article').click(function (){
+       // alert($(this).attr('del_id'));
+        /////////////////////////////
+        let currenBtn = $(this); // 先将获取的标签对象存储起来
+        swal({
+          title: "你确定删除?",
+          text: "你当前操作会导致数据彻底消失无法找回,请三思!",
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonClass: "btn-danger",
+          confirmButtonText: "Yes",
+          cancelButtonText: "No!",
+          closeOnConfirm: false,
+          closeOnCancel: false,
+          showLoaderOnConfirm: true,  //延时3秒,动态效果
+        },
+        function(isConfirm) {
+          if (isConfirm) {
+            //swal("已删除!", "已经删除", "success");
+              $.ajax({
+                  url:'/delete_article/',
+                  type:'post',
+                  data:{
+                      'del_id':currenBtn.attr('del_id'),
+                      'csrfmiddlewaretoken': '{{ csrf_token }}'
+                  },
+                  success:function (args) {
+                      if (args.code === 88){
+                          swal('已删除',args.msg,'success')
+                          currenBtn.parent().parent().remove()
+                      }
+                      else{
+                          swal('Error',args.msg,'info')
+                          currenBtn.parent().parent().remove()
+                      }
+                  }
+              })
+          }
+          else {
+            swal("操作已取消", "数据没有被删除!", "error");
+          }
+        });
+
+        ///////////////////////////////
+    });
+
+$('table').addClass('table table-hover table-bordered border-dark');
+    </script>
+{% endblock %}
+

@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+    <h1 class="text-center"><i class="fa fa-plus-square"></i>添加书籍</h1>
+    <form action="" method="post" enctype="multipart/form-data">
+        <p><i class="fa fa-book"></i>书名:<input type="text" name="name" class="form-control"></p>
+        <p><i class="fa fa-jpy"></i>价格:<input type="text" name="price" class="form-control"></p>
+        <p><i class="fa fa-calendar"></i>出版日期:<input type="date" name="publish_date" class="form-control"></p>
+        <p><i class="fa fa-building"></i>出版社:
+            <select name="publish" id="" class="form-control">
+               {% for publish_obj in publish_queryset %}
+                  <option value="{{ publish_obj.id }}">{{ publish_obj.name }}</option>
+               {% endfor %}
+            </select>
+        </p>
+        <p><i class="fa fa-users"></i>作者:
+            <select name="authors" id="" multiple class="form-control">
+                {% for author_obj in author_queryset %}
+                    <option value="{{ author_obj.pk }}">{{ author_obj.name }}</option>
+                {% endfor %}
+
+            </select>
+        </p>
+        <input type="submit" value="添加" class="btn btn-success">
+    </form>
+{% endblock %}

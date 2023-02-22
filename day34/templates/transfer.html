@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sweetalert.css' %}">
+
+    <script src="{% static 'js/sweetalert.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+</head>
+<body>
+<h1>正常网站</h1>
+<form action="/csrf/" method="post">
+    {% csrf_token %}
+    <p>username:<input type="text" name="username"></p>
+    <p>target_user:<input type="text" name="target_user"></p>
+    <p>money:<input type="text" name="money"></p>
+    <input type="submit">
+</form>
+<button id="d1">Ajax请求</button>
+
+
+{#<script src="{% static 'js/csrf.js' %}"></script>#}
+{#<script>#}
+{#    $('#d1').click(function () {#}
+{#        $.ajax({#}
+{#            url: '',#}
+{#            type: 'post',#}
+            {#data: {'username': 'tom', 'csrfmiddlewaretoken':$('[name=csrfmiddlewaretoken]').val()},#}
+            {#data: {'username': 'tom', 'csrfmiddlewaretoken':'{{ csrf_token }}'},#}
+{#            data: {"username":'tom'},#}
+{#            success: function () {#}
+{##}
+{#            }#}
+{#        })#}
+{#    })#}
+{#</script>#}
+</body>
+</html>

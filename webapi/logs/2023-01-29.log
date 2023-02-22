@@ -1,0 +1,52 @@
+INFO 2023-01-29 09:34:43,656 autoreload 7720 6128 Watching for file changes with StatReloader
+WARNING 2023-01-29 09:34:57,436 log 7720 6076 Not Found: /
+WARNING 2023-01-29 09:34:57,494 basehttp 7720 6076 "GET / HTTP/1.1" 404 2398
+WARNING 2023-01-29 09:34:58,376 log 7720 6076 Not Found: /favicon.ico
+WARNING 2023-01-29 09:34:58,379 basehttp 7720 6076 "GET /favicon.ico HTTP/1.1" 404 2449
+WARNING 2023-01-29 09:35:08,514 log 7720 6076 Not Found: /user/
+WARNING 2023-01-29 09:35:08,515 basehttp 7720 6076 "GET /user/ HTTP/1.1" 404 2325
+INFO 2023-01-29 09:35:24,152 basehttp 7720 6076 "GET /media HTTP/1.1" 301 0
+WARNING 2023-01-29 09:35:24,251 log 7720 6076 Not Found: /media/
+WARNING 2023-01-29 09:35:24,252 basehttp 7720 6076 "GET /media/ HTTP/1.1" 404 2590
+INFO 2023-01-29 09:37:04,183 autoreload 7720 6128 F:\Django_Project_Dir\webapi\webapi\apps\home\views.py changed, reloading.
+INFO 2023-01-29 09:37:05,413 autoreload 7880 1000 Watching for file changes with StatReloader
+INFO 2023-01-29 09:37:10,548 autoreload 7880 1000 F:\Django_Project_Dir\webapi\webapi\apps\home\views.py changed, reloading.
+INFO 2023-01-29 09:37:11,952 autoreload 3148 2200 Watching for file changes with StatReloader
+INFO 2023-01-29 09:37:18,415 autoreload 3148 2200 F:\Django_Project_Dir\webapi\webapi\apps\home\views.py changed, reloading.
+INFO 2023-01-29 09:37:19,603 autoreload 8904 3120 Watching for file changes with StatReloader
+INFO 2023-01-29 09:37:22,711 autoreload 8904 3120 F:\Django_Project_Dir\webapi\webapi\apps\home\views.py changed, reloading.
+INFO 2023-01-29 09:37:23,972 autoreload 7408 10020 Watching for file changes with StatReloader
+INFO 2023-01-29 09:37:33,508 autoreload 7408 10020 F:\Django_Project_Dir\webapi\webapi\apps\home\views.py changed, reloading.
+INFO 2023-01-29 09:37:34,614 autoreload 8340 736 Watching for file changes with StatReloader
+INFO 2023-01-29 09:37:38,171 autoreload 8340 736 F:\Django_Project_Dir\webapi\webapi\apps\home\views.py changed, reloading.
+INFO 2023-01-29 09:37:39,447 autoreload 8424 2532 Watching for file changes with StatReloader
+INFO 2023-01-29 09:37:43,459 autoreload 8424 2532 F:\Django_Project_Dir\webapi\webapi\apps\home\views.py changed, reloading.
+INFO 2023-01-29 09:37:44,691 autoreload 6684 10020 Watching for file changes with StatReloader
+INFO 2023-01-29 09:37:47,542 autoreload 6684 10020 F:\Django_Project_Dir\webapi\webapi\apps\home\views.py changed, reloading.
+INFO 2023-01-29 09:37:48,652 autoreload 4244 1312 Watching for file changes with StatReloader
+INFO 2023-01-29 09:37:58,460 autoreload 4244 1312 F:\Django_Project_Dir\webapi\webapi\apps\home\views.py changed, reloading.
+INFO 2023-01-29 09:38:00,000 autoreload 8424 1272 Watching for file changes with StatReloader
+INFO 2023-01-29 09:38:03,218 autoreload 8424 1272 F:\Django_Project_Dir\webapi\webapi\apps\home\views.py changed, reloading.
+INFO 2023-01-29 09:38:04,899 autoreload 10020 6684 Watching for file changes with StatReloader
+INFO 2023-01-29 09:38:32,552 autoreload 10020 6684 F:\Django_Project_Dir\webapi\webapi\urls.py changed, reloading.
+INFO 2023-01-29 09:38:33,821 autoreload 9024 3424 Watching for file changes with StatReloader
+INFO 2023-01-29 09:38:37,144 autoreload 9024 3424 F:\Django_Project_Dir\webapi\webapi\urls.py changed, reloading.
+INFO 2023-01-29 09:38:38,367 autoreload 3284 5692 Watching for file changes with StatReloader
+INFO 2023-01-29 09:38:41,422 autoreload 3284 5692 F:\Django_Project_Dir\webapi\webapi\urls.py changed, reloading.
+INFO 2023-01-29 09:38:42,454 autoreload 7868 32 Watching for file changes with StatReloader
+INFO 2023-01-29 09:38:46,541 autoreload 7868 32 F:\Django_Project_Dir\webapi\webapi\urls.py changed, reloading.
+INFO 2023-01-29 09:38:47,705 autoreload 7472 2180 Watching for file changes with StatReloader
+INFO 2023-01-29 09:38:59,396 autoreload 7472 2180 F:\Django_Project_Dir\webapi\webapi\urls.py changed, reloading.
+INFO 2023-01-29 09:39:00,503 autoreload 7188 2948 Watching for file changes with StatReloader
+INFO 2023-01-29 09:39:11,016 autoreload 7188 2948 F:\Django_Project_Dir\webapi\webapi\urls.py changed, reloading.
+INFO 2023-01-29 09:39:12,505 autoreload 3312 10116 Watching for file changes with StatReloader
+INFO 2023-01-29 09:39:35,824 autoreload 3312 10116 F:\Django_Project_Dir\webapi\webapi\urls.py changed, reloading.
+INFO 2023-01-29 09:39:37,285 autoreload 8528 1268 Watching for file changes with StatReloader
+INFO 2023-01-29 09:39:40,523 autoreload 8528 1268 F:\Django_Project_Dir\webapi\webapi\urls.py changed, reloading.
+INFO 2023-01-29 09:39:41,655 autoreload 1536 8928 Watching for file changes with StatReloader
+INFO 2023-01-29 09:40:06,666 autoreload 1536 8928 F:\Django_Project_Dir\webapi\webapi\urls.py changed, reloading.
+INFO 2023-01-29 09:40:07,927 autoreload 7532 3132 Watching for file changes with StatReloader
+INFO 2023-01-29 09:40:13,807 basehttp 7532 4804 "GET /home HTTP/1.1" 301 0
+INFO 2023-01-29 09:40:13,981 basehttp 7532 4804 "GET /home/ HTTP/1.1" 200 5
+INFO 2023-01-29 09:40:19,505 basehttp 7532 4804 "GET /home/ HTTP/1.1" 200 5
+INFO 2023-01-29 14:57:40,053 basehttp 7532 6136 "GET /home/ HTTP/1.1" 200 5

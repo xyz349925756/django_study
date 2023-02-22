@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sweetalert.css' %}">
+
+    <script src="{% static 'js/sweetalert.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+</head>
+<body>
+<form action="" method="post">
+    {% csrf_token %}
+    <h1>管理员注册</h1>
+    <p>username:<input type="text" name="username"></p>
+    <p>password:<input type="text" name="password"></p>
+    <p>confirm_password:<input type="text" name="confirm_password"></p>
+    <p>Email:<input type="text" name="email"></p>
+    <input type="submit" value="注册" class="btn btn-primary">
+</form>
+</body>
+</html>

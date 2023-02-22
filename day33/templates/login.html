@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sweetalert.css' %}">
+
+    <script src="{% static 'js/sweetalert.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+</head>
+<body>
+
+<div class="modal-dialog" >   <!--role="document" 校验-->
+    <div class="text-center modal-content rounded-5 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <!-- <h5 class="modal-title">Modal title</h5> -->
+        <h2 class="fw-bold mb-0">登录</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body p-5 pt-0">
+        <form method="post" class="" novalidate>
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control rounded-4" name="username" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">用户名</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control rounded-4" name="password" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">密码</label>
+          </div>
+          <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" type="submit">登录</button>
+          <small class="text-muted">如果你没有注册过请联系管理员.</small>
+          <hr class="my-4">
+        </form>
+      </div>
+
+    </div>
+</div>
+
+</body>
+</html>

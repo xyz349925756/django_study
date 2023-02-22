@@ -1,0 +1,39 @@
+INFO 2023-01-18 19:59:53,030 autoreload 3964 8492 Watching for file changes with StatReloader
+WARNING 2023-01-18 20:00:47,107 log 3964 3432 Not Found: /api
+WARNING 2023-01-18 20:00:47,108 basehttp 3964 3432 "GET /api HTTP/1.1" 404 2194
+INFO 2023-01-18 20:01:36,351 autoreload 3964 8492 F:\Django_Project_Dir\webapi\webapi\settings\dev.py changed, reloading.
+INFO 2023-01-18 20:01:39,083 autoreload 7756 8220 Watching for file changes with StatReloader
+INFO 2023-01-18 20:12:37,520 autoreload 7756 8220 F:\Django_Project_Dir\webapi\webapi\settings\dev.py changed, reloading.
+INFO 2023-01-18 20:12:40,327 autoreload 11072 5516 Watching for file changes with StatReloader
+INFO 2023-01-18 20:18:19,154 autoreload 11072 5516 F:\Django_Project_Dir\webapi\webapi\settings\dev.py changed, reloading.
+INFO 2023-01-18 20:18:45,472 autoreload 9288 5428 Watching for file changes with StatReloader
+WARNING 2023-01-18 20:18:53,710 log 9288 7720 Not Found: /api
+WARNING 2023-01-18 20:18:53,711 basehttp 9288 7720 "GET /api HTTP/1.1" 404 2194
+INFO 2023-01-18 20:27:24,055 autoreload 9288 5428 D:\Python\web\Lib\site-packages\django\utils\log.py changed, reloading.
+INFO 2023-01-18 20:27:26,345 autoreload 2356 7684 Watching for file changes with StatReloader
+INFO 2023-01-18 20:29:05,794 autoreload 2356 7684 D:\Python\web\Lib\site-packages\django\utils\log.py changed, reloading.
+INFO 2023-01-18 20:29:09,029 autoreload 1984 4372 Watching for file changes with StatReloader
+INFO 2023-01-18 20:34:48,566 autoreload 1984 4372 F:\Django_Project_Dir\webapi\webapi\settings\dev.py changed, reloading.
+INFO 2023-01-18 20:34:50,545 autoreload 7240 8444 Watching for file changes with StatReloader
+WARNING 2023-01-18 20:35:00,062 log 7240 2732 Not Found: /api
+WARNING 2023-01-18 20:35:00,063 basehttp 7240 2732 "GET /api HTTP/1.1" 404 2194
+WARNING 2023-01-18 20:35:04,011 log 7240 2732 Not Found: /
+WARNING 2023-01-18 20:35:04,012 basehttp 7240 2732 "GET / HTTP/1.1" 404 2167
+INFO 2023-01-18 20:36:30,065 autoreload 7240 8444 F:\Django_Project_Dir\webapi\webapi\settings\dev.py changed, reloading.
+INFO 2023-01-18 20:36:32,147 autoreload 10188 7532 Watching for file changes with StatReloader
+INFO 2023-01-18 20:37:35,768 autoreload 10188 7532 F:\Django_Project_Dir\webapi\webapi\settings\dev.py changed, reloading.
+INFO 2023-01-18 20:37:37,587 autoreload 5764 4244 Watching for file changes with StatReloader
+INFO 2023-01-18 20:38:56,927 autoreload 5764 4244 F:\Django_Project_Dir\webapi\webapi\settings\dev.py changed, reloading.
+INFO 2023-01-18 20:38:59,269 autoreload 6992 7240 Watching for file changes with StatReloader
+INFO 2023-01-18 20:40:10,218 autoreload 6992 7240 F:\Django_Project_Dir\webapi\webapi\settings\dev.py changed, reloading.
+INFO 2023-01-18 20:40:12,138 autoreload 1888 5028 Watching for file changes with StatReloader
+INFO 2023-01-18 20:40:16,145 autoreload 1888 5028 F:\Django_Project_Dir\webapi\webapi\settings\dev.py changed, reloading.
+INFO 2023-01-18 20:40:19,087 autoreload 3108 9744 Watching for file changes with StatReloader
+WARNING 2023-01-18 20:40:35,893 log 3108 1948 Not Found: /
+WARNING 2023-01-18 20:40:35,894 basehttp 3108 1948 "GET / HTTP/1.1" 404 2167
+INFO 2023-01-18 20:44:12,663 autoreload 3108 9744 F:\Django_Project_Dir\webapi\webapi\settings\dev.py changed, reloading.
+INFO 2023-01-18 20:44:15,783 autoreload 2512 8232 Watching for file changes with StatReloader
+INFO 2023-01-18 21:15:46,709 autoreload 2512 8232 F:\Django_Project_Dir\webapi\webapi\settings\dev.py changed, reloading.
+INFO 2023-01-18 21:17:17,066 autoreload 5272 6100 Watching for file changes with StatReloader
+WARNING 2023-01-18 21:18:16,111 log 5272 10940 Not Found: /
+WARNING 2023-01-18 21:18:16,112 basehttp 5272 10940 "GET / HTTP/1.1" 404 2167

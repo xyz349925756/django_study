@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome/css/all.css' %}">
+
+    <style>
+        .has-error {
+            color: red;
+        }
+    </style>
+
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
+</head>
+<body>
+{#注册页面#}
+<div class="container text-center" style="width: 60%">
+    <h1>用户注册</h1>
+    <form id="myform" novalidate>
+        {% csrf_token %}
+        {% for foo in form_obj %}
+            <div class="form-floating mb-3">
+                {{ foo }}
+                <label for="{{ foo.auto_id }}">{{ foo.label }}</label>
+            <span style="color: red"></span>
+
+            </div>
+        {% endfor %}
+
+         <div class="form-group mb-3" style="text-align: left">
+             <label for="myavatar_file"><i class="fa-solid fa-id-card fa-2x"></i>
+                 <img src="{% static 'avatar/../media/avatar/default.png' %}" id="myavatar_img" alt="" width="100px" style="margin-left: 20px" >
+             </label>
+             <input type="file" id="myavatar_file" name="avatar" style="display:none;">
+         </div>
+        <input type="button" value="注册" class="btn btn-primary form-control" id="id_commit">
+
+    </form>
+    <hr>
+</div>
+
+
+<script>
+ $('#myavatar_file').change(function (){
+    // 生成一个文件阅读器
+     let myFileReaderObj = new FileReader();
+     //获取用户上传的图片  this表示当前对象myavatar_file
+     let fileObj = $(this)[0].files[0]
+     //将文件对象交给阅读器
+     myFileReaderObj.readAsDataURL(fileObj)   //异步操作 io操作
+     // 这里直接添加属性会显示空白,因为上面是异步 io操作
+     // 这里需要等待文件阅读器加载完毕智慧在执行
+     myFileReaderObj.onload = function (){
+         $('#myavatar_img').attr('src',myFileReaderObj.result)
+     }
+ })
+
+ // 点击注册按钮发送数据
+ $('#id_commit').click(function () {
+     {#alert(123)#}
+     // 定义一个变量将发送的数据放在里面
+     let formDataObj = new FormData();
+     // 添加普通的键值对
+     //console.log($('#myform').serializeArray()) //1:{name: 'username', value: ''}
+     //遍历form表单
+     $.each($('#myform').serializeArray(),function (index,obj){
+         //console.log(index,obj) // 拿到的数据1:{name: 'username', value: ''}  index 是1   obj是{name:'',value:''}
+         formDataObj.append(obj.name,obj.value)  // 这里面这是添加了前面需要验真的4个字段,文件没有添加
+     });
+     // 添加文件数据
+     formDataObj.append('avatar',$('#myavatar_file')[0].files[0]);   // avatar 这个是数据库字段,也是input字段
+
+     //发送ajax
+     $.ajax({
+         url: "",
+         type: 'post',
+         data: formDataObj,
+
+         // 取消类型和数据
+         contentType:false,
+         processData:false,
+
+         success:function (args){
+             // 判断views 中返回的code
+             //console.log(args)
+             if (args.code === 8888){
+                 window.location.href = args.url
+             }
+             else{
+                 $.each(args.msg,function (index,obj){
+                     //console.log(index,obj)
+                     let targetId = '#id_' + index
+                     //console.log(targetName)
+                     $(targetId).next().text(obj[0]).parent().addClass('has-error')
+                 })
+             }
+         }
+     })
+ })
+
+ // 焦点事件
+ $('input').focus(function (){
+     //将焦点框的div has-error属性移除
+     $(this).next().parent().removeClass('has-error')
+ })
+
+</script>
+
+</body>
+</html>

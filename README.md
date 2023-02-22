@@ -1,1 +1,4 @@
-# django_study
+个人django实训
+
+里面都是某个组件或者功能的演示
+

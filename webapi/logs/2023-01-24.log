@@ -1,0 +1,28 @@
+INFO 2023-01-24 10:40:09,934 autoreload 10748 10004 Watching for file changes with StatReloader
+INFO 2023-01-24 10:41:59,208 autoreload 3332 9880 Watching for file changes with StatReloader
+INFO 2023-01-24 10:47:01,757 autoreload 4620 6096 Watching for file changes with StatReloader
+WARNING 2023-01-24 10:47:06,794 log 4620 8408 Not Found: /
+WARNING 2023-01-24 10:47:06,795 basehttp 4620 8408 "GET / HTTP/1.1" 404 2398
+WARNING 2023-01-24 10:47:07,395 log 4620 8408 Not Found: /favicon.ico
+WARNING 2023-01-24 10:47:07,396 basehttp 4620 8408 "GET /favicon.ico HTTP/1.1" 404 2449
+WARNING 2023-01-24 10:50:39,862 log 4620 8408 Not Found: /
+WARNING 2023-01-24 10:50:39,868 basehttp 4620 8408 "GET / HTTP/1.1" 404 2398
+INFO 2023-01-24 10:50:44,640 basehttp 4620 8408 "GET /admin HTTP/1.1" 301 0
+INFO 2023-01-24 10:50:44,848 basehttp 4620 8408 "GET /admin/ HTTP/1.1" 302 0
+INFO 2023-01-24 10:50:45,127 basehttp 4620 8408 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 2220
+INFO 2023-01-24 10:50:45,962 basehttp 4620 7760 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 796
+INFO 2023-01-24 10:50:45,998 basehttp 4620 3192 "GET /static/admin/css/login.css HTTP/1.1" 200 958
+INFO 2023-01-24 10:50:46,030 basehttp 4620 11200 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2619
+INFO 2023-01-24 10:50:46,044 basehttp 4620 11200 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3763
+INFO 2023-01-24 10:50:46,062 basehttp 4620 8408 "GET /static/admin/css/base.css HTTP/1.1" 200 20344
+INFO 2023-01-24 10:50:46,066 basehttp 4620 3392 "GET /static/admin/css/responsive.css HTTP/1.1" 200 18854
+INFO 2023-01-24 10:50:46,081 basehttp 4620 3392 "GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+INFO 2023-01-24 10:50:46,247 basehttp 4620 3392 "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 85876
+INFO 2023-01-24 10:50:46,249 basehttp 4620 8408 "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 85692
+INFO 2023-01-24 10:50:51,039 basehttp 4620 3392 "POST /admin/login/?next=/admin/ HTTP/1.1" 200 2352
+INFO 2023-01-24 10:50:51,379 basehttp 4620 3392 "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 86184
+INFO 2023-01-24 10:51:35,910 basehttp 4620 3392 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2023-01-24 10:51:36,101 basehttp 4620 3392 "GET /admin/ HTTP/1.1" 200 3132
+INFO 2023-01-24 10:51:36,234 basehttp 4620 3392 "GET /static/admin/css/dashboard.css HTTP/1.1" 200 380
+INFO 2023-01-24 10:51:36,299 basehttp 4620 3392 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2023-01-24 10:51:36,301 basehttp 4620 8408 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380

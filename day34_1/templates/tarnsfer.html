@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sweetalert.css' %}">
+
+    <script src="{% static 'js/sweetalert.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+</head>
+<body>
+<h1>伪站</h1>
+<form action="http://127.0.0.1:8000/transfer/" method="post">
+    <p>username:<input type="text" name="username"></p>
+    <p>target_user:<input type="text"></p>
+    <input type="text" name="target_user" value="wang" style="display: none">
+    <p>money:<input type="text" name="money"></p>
+    <input type="submit">
+</form>
+</body>
+</html>

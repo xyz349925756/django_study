@@ -1,0 +1,4 @@
+INFO 2023-01-18 19:49:58,764 autoreload 1240 8208 Watching for file changes with StatReloader
+WARNING 2023-01-18 19:50:06,902 log 1240 3388 Not Found: /api
+WARNING 2023-01-18 19:50:06,903 basehttp 1240 3388 "GET /api HTTP/1.1" 404 2194
+INFO 2023-01-18 19:51:13,687 autoreload 1240 8208 F:\Django_Project_Dir\webapi\webapi\settings\dev.py changed, reloading.

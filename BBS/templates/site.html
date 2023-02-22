@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+            {#            {% for article_obj in article_queryset %}#}
+            {% for article_obj in article_page_queryset %}
+                <h5 class="mt-0 mb-3"><a href="/{{ username }}/p/{{ article_obj.pk }}/">{{ article_obj.title }}</a></h5>
+                <div class="d-flex position-relative">
+                    <img src="/media/{{ article_obj.blog.userinfo.avatar }}" width="80" height="80"
+                         class="flex-shrink-0 me-3" alt="{{ article_obj.blog.userinfo.username }}">
+                    <div>
+                        <div style="word-break: break-all">{{ article_obj.desc }}</div>
+
+
+                        <div class="d-flex justify-content-end">
+                            <span>posted </span>
+                            <span>&nbsp;&nbsp;@ &nbsp;&nbsp; {{ article_obj.create_time|date:'Y-m-d' }}&nbsp;&nbsp;</span>
+                            <span>{{ article_obj.blog.userinfo.username }} &nbsp;&nbsp;</span>
+                            <span>
+                                 <i class="fa-sharp fa-solid fa-message"></i>评论 {{ article_obj.comment_num }}
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-thumbs-up"></i>
+                                  点赞 {{ article_obj.up_num }}
+                            </span>
+                            {% if request.user.username == article_obj.blog.userinfo.username  %}
+                            <span>&nbsp;&nbsp;<a href="{% url 'edit_article' article_obj.pk %}">
+                                编辑</a>
+                            </span>
+                            {% else %}
+                            <span>&nbsp;&nbsp;
+                                编辑
+                            </span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <hr/>
+
+            {% endfor %}
+{% endblock %}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sweetalert.css' %}">
+
+    <script src="{% static 'js/sweetalert.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+</head>
+<body>
+<form action="" method="post" novalidate>
+{#<p>第一种方式，封装程度高，扩展性差</p>#}
+{#    {{ form_obj.as_p }}#}
+{#    {{ form_obj.as_div }}#}
+{#    {{ form_obj.as_ul }}#}
+{#    {{ form_obj.as_table }}#}
+{#    <p>第二种，扩展性高，代码多</p>#}
+{#    <p>{{ form_obj.username.label }} : {{ form_obj.username }}</p>#}
+{#    <p>{{ form_obj.password.label }} : {{ form_obj.password }}</p>#}
+{#    <p>{{ form_obj.email.label }}    : {{ form_obj.email }}</p>#}
+    <p>第三种，推荐使用</p>
+    {% for form in form_obj %}
+        <p>{{ form.label }} : {{ form }}
+        <span style="color: red">{{ form.errors.0 }}</span>
+        </p>
+    {% endfor %}
+    <input type="submit" value="提交" class="btn btn-primary">
+
+</form>
+</body>
+</html>

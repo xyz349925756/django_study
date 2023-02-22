@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sweetalert.css' %}">
+    <link rel="stylesheet" href="{% static 'simditor/css/simditor.css' %}">
+
+
+    <script src="{% static 'js/sweetalert.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
+
+
+{#    <script src="{% static 'simditor/js/jquery.min.js' %}"></script>#}
+    <script src="{% static 'simditor/js/module.js' %}"></script>
+    <script src="{% static 'simditor/js/hotkeys.js' %}"></script>
+    <script src="{% static 'simditor/js/uploader.js' %}"></script>
+    <script src="{% static 'simditor/js/simditor.js' %}"></script>
+    <script src="{% static 'simditor/js/simditor-dropzone.js' %}"></script>
+
+
+
+    {% block css %}
+
+    {% endblock %}
+</head>
+<body>
+
+{#首页头部#}
+<header>
+    <div class="px-3 py-2 bg-dark text-white">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+                    <h1>{{ request.user.blog.site_title }}</h1>
+
+                </a>
+
+                <ul class="nav justify-content-center">
+                    <li>
+                        <a href="/" class="nav-link text-white">
+                            <button class="btn btn-outline-secondary"><i
+                                    class="bi d-block mx-auto mb-1 fa-solid fa-house-chimney fa-fw fa-2x"></i>
+                                首 页
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link text-white">
+                            <button class="btn btn-outline-secondary"><i
+                                    class="bi d-block mx-auto mb-1 fa-solid fa-gauge fa-fw fa-2x"></i>
+                                控制面板
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link text-white">
+                            <button class="btn btn-outline-secondary">
+                                <i class="bi d-block mx-auto mb-1 fa-brands fa-first-order fa-fw fa-2x"></i>
+                                博 客
+                            </button>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link text-white">
+                            <button class="btn btn-outline-secondary">
+                                <i class="bi d-block mx-auto mb-1 fa-solid fa-square-rss fa-fw fa-2x"></i>
+                                Products
+                            </button>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link text-white">
+                            <button class="btn btn-outline-secondary">
+                                <i class="bi d-block mx-auto mb-1 fa-solid fa-solid fa-gears fa-fw fa-2x"></i>
+                                其他设置
+                            </button>
+
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class=" px-3 py-1 border-bottom mb-3">
+        <div class="container d-flex flex-wrap justify-content-center">
+            <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" role="search">
+                <input type="search" class="form-control" placeholder="搜索..." aria-label="Search">
+            </form>
+
+
+            <div class="text-end">
+
+                <nav class="navbar navbar-expand-lg navbar-light rounded" aria-label="Twelfth navbar example">
+                    <ul class="navbar-nav">
+                        {% if request.user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link active" role="button" aria-current="page" href="#">
+                                    <i class="fa-sharp fa-solid fa-person-circle-check fa-fw"></i> {{ request.user.username }}
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                    更多操作 <i class="fa-solid fa-angles-down"></i></a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdown10">
+                                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                           data-bs-target="#exampleModal">
+                                        <i class="fa-solid fa-user-pen"></i> 修改密码</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'set_avatar' %}"><i class="fa-solid fa-person-chalkboard"></i>
+                                        修改头像</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'badmin' %}"><i
+                                            class="fa-solid fa-screwdriver-wrench"></i>
+                                        后台管理</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'logout' %}"><i
+                                            class="fa-solid fa-right-from-bracket"></i> 退出登录</a></li>
+                                </ul>
+
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1"
+                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel"><i
+                                                        class="fa-solid fa-user-pen"></i> 修改密码</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group mb-3">
+                                                            <input type="text" class="form-control" disabled
+                                                                   value="{{ request.user.username }}">
+                                                        </div>
+                                                        <div class="form-group mb-3">
+                                                            <input type="password" name="old_password"
+                                                                   class="form-control" id="id_old_password"
+                                                                   placeholder="原密码">
+                                                        </div>
+                                                        <div class="form-group mb-3">
+                                                            <input type="password" name="new_password"
+                                                                   class="form-control" id="id_new_password"
+                                                                   placeholder="新密码">
+                                                        </div>
+                                                        <div class="form-group mb-3">
+                                                            <input type="password" name="confirm_password"
+                                                                   class="form-control" id="id_confirm_password"
+                                                                   placeholder="确认新密码">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <span style="color: red" id="password_error"></span>
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                    取 消
+                                                </button>
+                                                <button type="button" class="btn btn-primary" id="id_edit">修 改
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link active" role="button" aria-current="page" href="{% url 'login' %}">
+                                    <i class="fa-solid fa-right-to-bracket"></i> 登录
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" role="button" aria-current="page"
+                                   href="{% url 'register' %}">
+                                    <i class="fa-solid fa-registered"></i> 注册
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+                {#  <a href="{% url 'login' %}" role="button" class="btn btn-outline-dark"><i class="fa-solid fa-right-to-bracket"></i> 登录</a>#}
+                {#  <a href="{% url 'register' %}" role="button" class="btn btn-outline-dark"><i class="fa-solid fa-registered"></i> 注册</a>#}
+            </div>
+
+        </div>
+    </div>
+</header>
+<!----->
+<div class="container">
+    <div class="container-fluid row">
+        <div class="col-md-2" style="margin-top: 60px">
+            <div class="list-group" id="list-tab" role="tablist">
+                <span class="list-group-item bg-dark bg-opacity-50"><i class="fa-solid fa-gears"></i>  更多设置</span>
+                <a class="list-group-item " href="/article/" ><i class="fa-solid fa-plus"></i>  添加文章</a>
+                <a class="list-group-item " href="/suibi/"><i class="fa-regular fa-square-plus"></i>  添加随笔</a>
+                <a class="list-group-item " href=""><i class="fa-solid fa-box-open"></i>  草稿箱</a>
+                <a class="list-group-item " href="/badmin/"><i class="fa-solid fa-user-lock"></i>  更多操作</a>
+            </div>
+        </div>
+
+        <div class="col-md-10">
+            {% block home %}
+            
+            {% endblock %}
+        
+        {% block suibi %}
+        
+        {% endblock %}
+        
+        
+        {% block cont %}
+        
+        {% endblock %}
+        
+        {% block set %}
+        
+        {% endblock %}
+        </div>
+        <!------------------------------------->
+    </div>
+</div>
+
+<!-------------------->
+<!--分页-->
+
+
+<!-- FOOTER -->
+<div class="container">
+    <footer class="py-5">
+        <div class="row">
+            <div class="col-6 col-md-2 mb-3">
+                <h5>Section</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-md-2 mb-3">
+                <h5>Section</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-md-2 mb-3">
+                <h5>Section</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-5 offset-md-1 mb-3">
+                <form>
+                    <h5>Subscribe to our newsletter</h5>
+                    <p>Monthly digest of whats new and exciting from us.</p>
+                    <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                        <label for="newsletter1" class="visually-hidden">Email address</label>
+                        <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+            <p>© 2022 Company, Inc. All rights reserved.</p>
+            <ul class="list-unstyled d-flex">
+                <i class="fa-brands fa-qq fa-fw fa-2x"></i>
+                <i class="fa-solid fa-envelope fa-fw fa-2x"></i>
+                <i class="fa-brands fa-weixin fa-fw fa-2x"></i>
+            </ul>
+        </div>
+    </footer>
+</div>
+
+{% block js %}
+
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+{% block content %}
+ <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+              <td><i class="fa fa-list-ol"></i>ID</td>
+              <td><i class="fa fa-building"></i>出版社</td>
+              <td><i class="fa fa-map-marker"></i>地址</td>
+              <td><i class="fa fa-envelope"></i>Email</td>
+              <td><i class="fa fa-list-alt"></i>总出版数</td>
+          </tr>
+        </thead>
+        <tbody>
+        {% for publish_obj in publish_queryset %}
+            <tr>
+                <td>{{ publish_obj.id }}</td>
+                <td><a href="https://www.baidu.com/s?wd={{ publish_obj.name }}">{{ publish_obj.name }}</a></td>
+                <td><a href="http://api.map.baidu.com/geocoder?address={{ publish_obj.address }}&output=html&src=webapp.baidu.openAPIdemo">{{ publish_obj.address }}</a></td>
+                <td><a href="mailto: {{ publish_obj.email }} ">{{ publish_obj.email }}</a></td>
+                <td>
+                {{ publish_obj.book_set.all.count }}
+                </td>
+            </tr>
+        {% endfor %}
+            <tr>
+               <td>合计出版:</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>{{ sum_book.count }}册</td>
+            </tr>
+        </tbody>
+
+    </table>
+{% endblock %}

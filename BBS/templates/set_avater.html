@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <form action="" method="post" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+        <table class="table border border-primary text-center">
+            <thead>
+                <tr>
+                    <th><h4>原头像</h4></th>
+                    <th><h4>新头像</h4></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="/media/{{ request.user.avatar }}" class="rounded" width="200px" height="200px" alt="">
+                    </td>
+                    <td>
+                       <label for="myavatar_file"><i class="fa-solid fa-id-card fa-2x"></i>
+                           {% load static %}
+                         <img src="{% static '/media/avatar/default.png' %}" id="myavatar_img" alt="" width="200px" style="margin-left: 20px" >
+                     </label>
+                     <input type="file" id="myavatar_file" name="avatar" style="display:none;">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="text-end">
+             <input type="submit" value="更改" class="btn btn-outline-success">
+        </div>
+
+    </form>
+
+
+
+{% endblock %}
+
+{% block js %}
+    <script>
+         $('#myavatar_file').change(function (){
+        // 生成一个文件阅读器
+         let myFileReaderObj = new FileReader();
+         //获取用户上传的图片  this表示当前对象myavatar_file
+         let fileObj = $(this)[0].files[0]
+         //将文件对象交给阅读器
+         myFileReaderObj.readAsDataURL(fileObj)   //异步操作 io操作
+         // 这里直接添加属性会显示空白,因为上面是异步 io操作
+         // 这里需要等待文件阅读器加载完毕智慧在执行
+         myFileReaderObj.onload = function (){
+             $('#myavatar_img').attr('src',myFileReaderObj.result)
+         }
+     })
+    </script>
+{% endblock %}

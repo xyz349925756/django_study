@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sweetalert.css' %}">
+
+    <script src="{% static 'js/sweetalert.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+</head>
+<body>
+
+{#<form action="" method="post">#}
+{#    <p>#}
+{#        username: <input type="text" name="username">#}
+{#        <span style="color: red">{{ back_dic.username }}</span>#}
+{#    </p>#}
+{#    <p>#}
+{#        password: <input type="password" name="password">#}
+{#        <span style="color: red">{{ back_dic.password }}</span>#}
+{#    </p>#}
+{#        <input type="submit" value="提交" class="btn btn-primary">#}
+{#</form>#}
+
+<p><a href="/index/">index</a></p>
+<p><a href="/login/">login</a></p>
+<p><a href="/client/">client</a></p>
+<p><a href="/home/">home</a></p>
+
+</body>
+</html>

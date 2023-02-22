@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!--响应式布局-->
+    <title>regedit</title>
+    <!--django-->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+
+</head>
+<body>
+<div class="content">
+    <form action="">
+        <p>
+            username: <input type="text">
+            <span style="color: maroon"></span>
+        </p>
+        <p>
+            password: <input type="password">
+            <span></span>
+        </p>
+        <p>
+            <input type="button" value="提交" class="button btn-primary">
+        </p>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome/css/all.css' %}">
+
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
+</head>
+<body>
+{#注册页面#}
+<div class="container text-center" style="width: 60%">
+    <h1>用户注册</h1>
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+        {% for foo in form_obj %}
+            <div class="form-floating mb-3" >
+                {{ foo }}
+                <label for="floatingInput">{{ foo.label }}</label>
+            <span style="color: red">{{ foo.errors.0 }}</span>
+
+            </div>
+        {% endfor %}
+
+        <input type="submit" value="注册" class="btn btn-primary form-control" id="id_commit">
+
+    </form>
+    <hr>
+
+</div>
+
+
+
+</body>
+</html>

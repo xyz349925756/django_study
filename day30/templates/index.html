@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!--响应式布局-->
+    <title>Title</title>
+    <!--django-->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <!--jQuery CDN
+<link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.1.2/css/fontawesome.min.css" rel="stylesheet">
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.0/js/bootstrap.min.js"></script>-->
+</head>
+<body>
+{#<h1 class="text-center">Index</h1>#}
+{#<p class="p-0">{{ n }}</p>#}
+{#<p class="p-lg-0">{{ f }}</p>#}
+{#<p>{{ s }}</p>#}
+{#<p>{{ b }}</p>#}
+{#<p>{{ l }}</p>#}
+{#<p>{{ d }}</p>#}
+{#<p>{{ t }}</p>#}
+{#<p>{{ se }}</p>#}
+{#<p>func:传递函数名会自动加括号调用，但是模板语法不支持给函数传给函数额外的参数：{{ func }}</p>#}
+{#<p>MyClass:传类名的时候也会自动加括号调用（实例化）{{ MyClass }}</p>#}
+{#<span>内部能够自动判断出当前的变量名是否可以加括号调用，针对的是函数名和类名</span>#}
+{#<p>object:{{ obj }}</p>#}
+{#<p>{{ obj.get_self }}</p>#}
+{#<p>{{ obj.get_func }}</p>#}
+{#<p>{{ obj.get_class }}</p>#}
+{##}
+{#<p>django模板语法的取值，是固定的格式只能使用点符</p>#}
+{#<p>d.username:{{ d.username }}</p>#}
+{#<p>l[0]:{{ l.0 }}</p>#}
+{#<p>{{ d.hobby.3.info }}</p>#}
+{#<p>{{ d.hobby.2 }}</p>#}
+
+<div class="container">
+    <div class="text-center">
+{#        <h1>过滤器</h1>#}
+{#        <p>统计'{{ s }}'长度：{{ s|length }}</p>#}
+{#        <p>默认值：第一个是true就展示第一个参数的值，否则展示后面的默认值：{{ b|default:'这是default' }}</p>#}
+{#        <p>默认值：|分割左边是False才显示default：{{ False|default:'这是default' }}</p>#}
+{#        <p>文件大小：{{ file_size|filesizeformat }}</p>#}
+{#        <p>日期格式化：{{ current_time|date:'Y-m-d' }}</p>#}
+{#        <p>日期格式化:{{ current_time|date:'Y-m-d h:m:s' }}</p>#}
+{#        <p>切片{{ l|slice:'0:4:2' }} 支持步长</p>#}
+{#        <p>切取字符（包含三个点）:{{ info|truncatechars:30 }}</p>#}
+{#        <p>提取单词(不含三点,按空格)：{{ egl|truncatewords:6 }}</p>#}
+{#        <p>提取单词（中文）：{{ info|truncatewords:9 }}</p>#}
+{#        <p>移除指定字符：{{ msg|cut:' ' }} 移除空格</p>#}
+{#        <p>拼接操作：{{ l|join:'_' }}</p>#}
+{#        <p>join_sum:{{ n|add:10 }}</p>#}
+{#        <p>join_sum_str:{{ s|add:msg }}</p>#}
+{#        <p>转义 :{{ hh|safe }}</p>#}
+{#        <p>转义：{{ ss|safe }}</p>#}
+{#        <p>转义：{{ res }}</p>#}
+    </div>    
+</div>
+{#<div>#}
+{#      <h1>标签</h1>#}
+{#        {% for foo in l %}#}
+{#            <p>{{ foo }}</p>#}
+{#            <p>{{ forloop }}</p>#}
+{#        {% endfor %}#}
+{#<span>foo是loop 里面的元素</span>#}
+{#<span>forloop是：{'父循环 parentloop': {}, '计数0开始counter0': 0, '计数1开始counter': 1, '倒叙最后为1，revcounter': 4, '倒叙最后为0，revcounter0': 3, '是不是第一first': True, '是不是最后last': False}</span>#}
+{#</div>#}
+
+{#{% if b %}#}
+{#    <p>This is True!</p>#}
+{#{% elif s%}#}
+{#    <p>this is elif.</p>#}
+{#{% else %}#}
+{#    <p>over!</p>#}
+{#{% endif %}#}
+
+{#{% for foo in lll %}#}
+{#    {% if forloop.first %}#}
+{#        <p>第一</p>#}
+{#    {% elif forloop.last %}#}
+{#        <p>最后</p>#}
+{#    {% else %}#}
+{#        <p>{{ foo }}</p>#}
+{#    {% endif %}#}
+{#    {% empty %}#}
+{#    <p>for loop 可迭代对象内部没有元素，根本没有循环</p>#}
+{#{% endfor %}#}
+
+{#第一种 遍历key#}
+{#{% for foo in d.keys %}#}
+{#<p>{{ foo }}</p>#}
+{#{% endfor %}#}
+{##}
+{#第二种 遍历values#}
+{#{% for foo in d.values %}#}
+{#    <p>{{ foo }}</p>#}
+{#{% endfor %}#}
+{##}
+{#第三种  遍历key,values 元组#}
+{#{% for foo in d.items %}#}
+{#    <p>{{ foo }} </p>#}
+{#{% endfor %}#}
+
+{#{% with d.hobby.3.info as nb %}#}
+{##}
+{#    <p>{{ nb }}</p>#}
+{#    <p>{{ d.hobby.3.info }}</p>#}
+{#{% endwith %}#}
+
+{#{% load mytags %}#}
+{#<p>n:{{ n }}</p>#}
+{#<p>{{ n|boby:666 }}</p>#}
+{##}
+{#<p>{% plus 'Tom' 1 2 3 %}</p>#}
+
+{% load mytags %}
+{% left 10 %}
+
+{#<ul>#}
+{#    {% for foo in data %}#}
+{#        <li>{{ foo }}</li>#}
+{#    {% endfor %}#}
+{#</ul>#}
+{% include 'template.html' %}
+
+</body>
+</html>

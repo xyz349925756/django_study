@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/dv.iml" filepath="$PROJECT_DIR$/.idea/dv.iml" />
+      <module fileurl="file://D:/vues/vue-django-naive/.idea/vue-django-naive.iml" filepath="D:/vues/vue-django-naive/.idea/vue-django-naive.iml" />
+    </modules>
+  </component>
+</project>

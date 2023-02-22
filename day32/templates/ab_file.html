@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!--响应式布局-->
+    <title>Title</title>
+    <!--django-->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+
+</head>
+<body>
+<p>username:<input type="text" id="username"></p>
+<p>password:<input type="password" id="password"></p>
+<p><input type="file" id="file1"></p>
+<button class="btn btn-primary" id="button1">提交</button>
+
+
+<script>
+    $('#button1').on('click',function () {
+        let formDateObj = new FormData;
+        formDateObj.append('username',$('#username').val());
+        formDateObj.append('password',$('#password').val());
+
+        formDateObj.append('file',$('#file1')[0].files[0]); //两个对象之间的转换
+        $.ajax({
+            url:'',
+            type:'post',
+            data:formDateObj,
+            contentType:false,
+            processData:false,
+            success:function (args) {
+                
+            }
+        })
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+{% extends 'admin/base.html' %}
+
+{% block home %}
+    <p></p>
+    <h3 class="mb-3"><i class="fa-solid fa-notes-medical"></i> 添加文章</h3>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default"><i class="fa-solid fa-pencil"></i>&nbsp;&nbsp;文章标题</span>
+            <input type="text" class="form-control" name="title">
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label"><i class="fa-solid fa-pen-to-square"></i>
+                内容</label>
+            <textarea class="form-control" id="editor" placeholder="请输入内容" rows="15" name="content" autofocus>
+          </textarea>
+        </div>
+
+        <div><i class="fa-solid fa-bars-staggered"></i> 分类 :
+
+            {% for category in category_list %}
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="category" id="inlineRadio1"
+                           value="{{ category.pk }}">
+                    <label class="form-check-label" for="inlineRadio1">{{ category.name }}</label>
+                </div>
+            {% endfor %}
+
+        </div>
+
+        <div><i class="fa-solid fa-tags"></i> 标签 :
+
+            {% for tag in tag_list %}
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="{{ tag.pk }}"
+                           name="tag">
+                    <label class="form-check-label" for="inlineCheckbox1">{{ tag.name }}</label>
+                </div>
+            {% endfor %}
+
+        </div>
+
+
+        <br>
+        <input type="submit" class="btn btn-outline-primary">
+    </form>
+
+
+
+{% endblock %}
+
+{% block js %}
+
+<script>
+    let editor = new Simditor({
+        textarea: $('#editor'),
+        ///////////显示工具栏/////////////
+        toolbar: [
+            'title',        // 标题
+            'bold',         // 加粗文字
+            'italic',       // 斜体文字
+            'underline',    // 下划线
+            'strikethrough',// 删除线
+            '|',            // 控件分隔线
+            'fontScale',    // 字体大小
+            'color',        // 字体颜色
+            'ol',           // 有序列表
+            'ul',           // 无序列表
+            'blockquote',   // 引用
+            'code',         // 代码块
+            'table',        // 表格
+            'link',         // 链接
+            'image',        // 图片
+            'hr',           // 分割线
+            'indent',       // 向右缩进
+            'outdent',      // 向左缩进
+            'alignment',     // 水平对齐
+            {#'mark',          //荧光笔  第三方扩展#}
+            {#'emoji',        // 表情#}
+            {#'fullscreen',   //全屏#}
+        ],
+        ///////////////其他项////////////
+        placeholder: '请输入文章内容',
+        upload: {
+            url: '/upload_image/',
+            params: {
+                'csrfmiddlewaretoken':'{{ csrf_token }}',
+            },
+            fileKey: 'upload_image',
+            connectionCount: 3,
+            leaveConfirm: '正在上传，您确定要离开此页面吗',
+        },
+        pasteImage: true, //从剪切板粘贴图片
+        imageButton: ['upload', 'external'],
+
+    });
+</script>
+
+{% endblock %}
+
+

@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <table class="table table-hover table-striped">
+      <thead>
+        <tr>
+            <td><i class="fa fa-list-ol"></i>ID</td>
+            <td><i class="fa fa-user"></i>姓名</td>
+            <td><i class="fa fa-address-card"></i>年龄</td>
+            <td><i class="fa fa-map-marker"></i>地址</td>
+            <td><i class="fa fa-phone"></i>电话</td>
+            <td><i class="fa fa-cogs"></i>操作</td>
+        </tr>
+      </thead>
+    <tbody>
+    {% for author_obj in author_queryset %}
+         <tr>
+             <td>{{ author_obj.id }}</td>
+             <td><a href="https://www.baidu.com/s?wd={{ author_obj.name }}">{{ author_obj.name }}</a></td>
+             <td>{{ author_obj.age }}</td>
+             <td><a href="http://api.map.baidu.com/geocoder?address={{ author_obj.author_detail.address }}&output=html&src=webapp.baidu.openAPIdemo">{{ author_obj.author_detail.address }}</a></td>
+             <td>{{ author_obj.author_detail.phone }}</td>
+             <td><a href="tel:{{ author_obj.author_detail.phone }}">打电话</a>
+                 <a href="sms:{{ author_obj.author_detail.phone }}?body">发短信</a>  <!--注意&和?的区别 ?安卓 &苹果-->
+             </td>
+          </tr>
+        {% endfor %}
+       </tbody>
+    </table>
+
+{% endblock %}

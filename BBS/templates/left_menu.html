@@ -1,0 +1,40 @@
+            <div class="card border-primary mb-3" style="max-width: 18rem;">
+                <div class="card-header">文章分类</div>
+                <div class="card-body text-primary">
+
+                    {% for category in category_list %}
+                        <p class="card-text"><a href="/{{ username }}/category/{{ category.2 }}/">
+                            {#                   {{ category }}   ('python', 1, 1) ('html', 1, 2) ('bash', 1, 3)  #}
+                            {{ category.0 }} [{{ category.1 }}]
+                        </a></p>
+                    {% endfor %}
+
+                </div>
+            </div>
+            <div class="card border-success mb-3" style="max-width: 18rem;">
+                <div class="card-header">文章标签</div>
+                <div class="card-body text-primary">
+
+                    {% for tag in tag_list %}
+                        <p class="card-text">
+                            <a href="/{{ username }}/tag/{{ tag.2 }}/">
+                            {{ tag.0 }} [{{ tag.1 }}]
+                            </a>
+                        </p>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+            <div class="card border-warning mb-3" style="max-width: 18rem;">
+                <div class="card-header">日期归档</div>
+                <div class="card-body text-primary">
+                    {% for date in date_list %}
+                    <p class="card-text">
+                        <a href="/{{ username }}/archive/{{ date.0|date:'Y-m' }}/">
+                            {{ date.0|date:'Y-m' }} [{{ date.1 }}]
+                        </a>
+                    </p>
+                    {% endfor %}
+                </div>
+            </div>
